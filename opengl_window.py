@@ -63,25 +63,25 @@ class OpenGLWindow(QOpenGLWindow):
     def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT)
 
-        self.sprite.setTextureRect("simple_level.png");
-        self.sprite.setPosition(0 + 64, 0 + 64);
+        self.sprite.setTextureRect("simple_level.png")
+        self.sprite.setPosition(0 + 64, 0 + 64)
+        self.sprite.draw(self.projViewMatrix)
+
+        self.sprite.setTextureRect("enemy_walk_1.png")
+        self.sprite.setPosition(16 * 1 + 64, -16 * 2 + 8 + 64)
+        self.sprite.draw(self.projViewMatrix)
+
+        self.sprite.setTextureRect("mario_dead.png")
+        self.sprite.setPosition(0 + 64, 0 + 64)
         self.sprite.draw(self.projViewMatrix);
 
-        self.sprite.setTextureRect("enemy_walk_1.png");
-        self.sprite.setPosition(16 * 1 + 64, -16 * 2 + 8 + 64);
-        self.sprite.draw(self.projViewMatrix);
+        self.sprite.setTextureRect("coin.png")
+        self.sprite.setPosition(16 * 3 + 8 + 64, 16 * 1 + 8 + 64)
+        self.sprite.draw(self.projViewMatrix)
 
-        self.sprite.setTextureRect("mario_dead.png");
-        self.sprite.setPosition(0 + 64, 0 + 64);
-        self.sprite.draw(self.projViewMatrix);
-
-        self.sprite.setTextureRect("coin.png");
-        self.sprite.setPosition(16 * 3 + 8 + 64, 16 * 1 + 8 + 64);
-        self.sprite.draw(self.projViewMatrix);
-
-        self.sprite.setTextureRect("mario_run_0.png");
-        self.sprite.setPosition(16 * 2 + 8 + 64, 16 * 1 + 8 + 64);
-        self.sprite.draw(self.projViewMatrix);
+        self.sprite.setTextureRect("mario_run_0.png")
+        self.sprite.setPosition(16 * 2 + 8 + 64, 16 * 1 + 8 + 64)
+        self.sprite.draw(self.projViewMatrix)
 
     def closeEvent(self, event):
         self.texture.destroy()
